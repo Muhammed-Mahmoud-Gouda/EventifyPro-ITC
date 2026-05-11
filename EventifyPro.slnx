@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="EventifyPro.BLL/EventifyPro.BLL.csproj" />
+  <Project Path="EventifyPro.DAL/EventifyPro.DAL.csproj" />
+  <Project Path="EventifyPro.Domain/EventifyPro.Domain.csproj" />
+  <Project Path="EventifyPro.Shared/EventifyPro.Shared.csproj" />
+  <Project Path="EventifyPro.Web/EventifyPro.Web.csproj" />
+</Solution>
