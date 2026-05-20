@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EventifyPro.Domain.Enums
+namespace EventifyPro.DAL.Configurations
 {
-    internal class Class1
+    internal class OutboxMessageConfiguration
     {
     }
 }
