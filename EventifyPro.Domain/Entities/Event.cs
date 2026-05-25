@@ -1,0 +1,69 @@
+﻿using Eventify.Domain.Enums;
+
+namespace Eventify.Domain.Entities;
+
+/// <summary>
+/// Represents an event that can be organized and attended by users.
+/// Events have ticket types, bookings, reviews, and waiting list functionality.
+/// </summary>
+/// <remarks>
+/// Events are the core entity of the EventifyPro system. They transition through various states
+/// from Draft to Published, and eventually Completed or Cancelled. Events support capacity limits,
+/// multiple ticket types, and comprehensive tracking of bookings and attendance.
+/// </remarks>
+public class Event
+{
+    /// <summary>
+    /// Gets or sets the unique identifier for the event.
+    /// </summary>
+    /// <value>The primary key.</value>
+    public int Id { get; set; }
+
+    public string Title { get; set; } = string.Empty;
+    public string Description { get; set; } = string.Empty;
+    public DateTime StartDate { get; set; }
+    public DateTime EndDate { get; set; }
+    public string Location { get; set; } = string.Empty;
+    public string City { get; set; } = string.Empty;
+    public string? ImageUrl { get; set; }
+
+    /// <summary>
+    /// Gets or sets the current status of the event.
+    /// </summary>
+    /// <value>The event status (Draft, Published, Cancelled, or Completed).</value>
+    public EventStatus Status { get; set; } = EventStatus.Draft;
+
+    /// <summary>
+    /// Gets or sets the maximum capacity of attendees for the event.
+    /// </summary>
+    /// <value>The maximum number of attendees, or null for unlimited capacity.</value>
+    public int? MaxCapacity { get; set; }
+
+    public bool IsDeleted { get; set; } = false;
+
+    /// <summary>
+    /// Gets or sets the user ID of the event organizer (foreign key).
+    /// </summary>
+    /// <value>The organizer's user ID.</value>
+    public string OrganizerId { get; set; } = string.Empty;
+
+    /// <summary>
+    /// Gets or sets the event category ID (foreign key).
+    /// </summary>
+    /// <value>The category identifier.</value>
+    public int CategoryId { get; set; }
+
+    public DateTime CreatedAt { get; set; }
+    public DateTime? UpdatedAt { get; set; }
+
+    // Navigation
+    public ApplicationUser Organizer { get; set; } = null!;
+    public Category Category { get; set; } = null!;
+    public ICollection<TicketType> TicketTypes { get; set; } = [];
+    public ICollection<Booking> Bookings { get; set; } = [];
+    public ICollection<Review> Reviews { get; set; } = [];
+    public ICollection<Ticket> Tickets { get; set; } = [];
+    public ICollection<ScanLog> ScanLogs { get; set; } = [];
+    public ICollection<ScanLog> ActualEventScanLogs { get; set; } = [];
+    public ICollection<WaitingList> WaitingListEntries { get; set; } = [];
+}

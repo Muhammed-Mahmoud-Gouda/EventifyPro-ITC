@@ -1,1 +1,13 @@
-﻿
+﻿global using Microsoft.EntityFrameworkCore;
+global using Microsoft.EntityFrameworkCore.Metadata.Builders;
+global using Eventify.Domain.Entities;
+global using Eventify.Domain.Enums;
+global using Eventify.Domain.Constants;
+global using Microsoft.AspNetCore.Identity;
+global using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+global using Eventify.Shared.Wrappers;
+global using Eventify.DAL.Extensions;
+global using EventifyPro.DAL.AppDatabase;
+global using EventifyPro.DAL.Repositories.Interfaces;
+global using EventifyPro.DAL.Repositories.Implementation;
+global using EventifyPro.DAL.Configurations;
